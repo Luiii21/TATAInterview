@@ -3,7 +3,8 @@
     <h3>Lista de tareas</h3>
     <div class="d-flex align-items-center justify-content-between mt-3">
       <h5 class="m-0">Tarea</h5>
-      <input [formControl]="taskItem" type="email" class="form-control mx-4" id="task">
+      <input [formControl]="taskItem" (keydown.enter)="addTask()" (keypress)="customTextValidator($event)" type="email"
+             class="form-control mx-4" id="task">
       <button class="btn btn-info text-white" type="button" (click)="addTask()">
         Agregar
       </button>
@@ -12,7 +13,8 @@
       <ng-container *ngFor="let task of taskList; let i = index">
         <div class="d-flex mt-2">
           <div class="form-check d-flex align-items-center">
-            <input class="form-check-input" type="checkbox" [checked]="task.status" [value]="task.status" [id]="task.id" (change)="changeTaskStatus(task, $event)">
+            <input class="form-check-input" type="checkbox" [checked]="task.status" [value]="task.status" [id]="task.id"
+                   (change)="changeTaskStatus(task, $event)">
             <label class="form-check-label" [for]="task.id">
               {{task.name}}
             </label>
