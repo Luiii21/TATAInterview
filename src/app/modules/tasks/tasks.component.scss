@@ -1,0 +1,22 @@
+.tasks {
+  display: flex;
+  height: fit-content;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+
+  .__task-list {
+    display: flex;
+    flex-direction: column;
+
+    .form-check-label {
+      font-size: 1.5rem;
+      margin: 0 12px;
+    }
+  }
+}
+
+.module-container {
+  display: flex;
+  justify-content: center;
+}

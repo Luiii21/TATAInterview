@@ -1,0 +1,27 @@
+<section class="module-container bg-light py-4">
+  <div class="tasks card p-4">
+    <h3>Lista de tareas</h3>
+    <div class="d-flex align-items-center justify-content-between mt-3">
+      <h5 class="m-0">Tarea</h5>
+      <input [formControl]="taskItem" type="email" class="form-control mx-4" id="task">
+      <button class="btn btn-info text-white" type="button" (click)="addTask()">
+        Agregar
+      </button>
+    </div>
+    <div class="__task-list p-3">
+      <ng-container *ngFor="let task of taskList; let i = index">
+        <div class="d-flex mt-2">
+          <div class="form-check d-flex align-items-center">
+            <input class="form-check-input" type="checkbox" [checked]="task.status" [value]="task.status" [id]="task.id" (change)="changeTaskStatus(task, $event)">
+            <label class="form-check-label" [for]="task.id">
+              {{task.name}}
+            </label>
+          </div>
+          <button *ngIf="!task.status" class="btn btn-danger" type="button" (click)="deleteTask(task)">
+            X
+          </button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</section>
